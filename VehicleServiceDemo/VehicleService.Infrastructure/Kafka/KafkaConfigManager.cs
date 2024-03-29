@@ -1,22 +1,18 @@
 ﻿using Confluent.Kafka;
 using Confluent.SchemaRegistry;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VehicleService.Infrastructure.Kafka;
 
 public interface IKafkaConfigManager
 {
-    ProducerConfig CreateProducerConfig(ProducerConfigOptions producerConfigOptions);
+    ProducerConfig CreateProducerConfig(ProducerConfigOptions options);
+    ConsumerConfig CreateConsumerConfig(ConsumerConfigOptions options);
     SchemaRegistryConfig CreateSchemaRegistryConfig(SchemaRegistryConfigOptions options);
 }
 
 public class KafkaConfigManager : IKafkaConfigManager
 {
-    public ProducerConfig CreateProducerConfig(ProducerConfigOptions producerConfigOptions)
+    public ProducerConfig CreateProducerConfig(ProducerConfigOptions options)
     {
         IDictionary<string, string> config = new Dictionary<string, string>();
         config.Add("sasl.mechanism", "PLAIN");
@@ -32,17 +28,37 @@ public class KafkaConfigManager : IKafkaConfigManager
         var producerConfig = new ProducerConfig(config)
         {
             //BootstrapServers = "localhost:9092",
-            BootstrapServers = producerConfigOptions.BootstrapServers,
+            BootstrapServers = options.BootstrapServers,
             SecurityProtocol = SecurityProtocol.SaslSsl,
             SaslMechanism = SaslMechanism.Plain,
             EnableSslCertificateVerification = false,
             //SaslUsername = "admin",
             //SaslPassword = "admin-secret",
-            SaslUsername = producerConfigOptions.SaslUsername,
-            SaslPassword = producerConfigOptions.SaslPassword
+            SaslUsername = options.SaslUsername,
+            SaslPassword = options.SaslPassword
         };
 
         return producerConfig;
+    }
+
+    public ConsumerConfig CreateConsumerConfig(ConsumerConfigOptions options)
+    {
+        var config = new ConsumerConfig();
+        config.BootstrapServers = options.BootstrapServers;
+        config.SecurityProtocol = SecurityProtocol.SaslSsl;
+        config.SaslMechanism = SaslMechanism.Plain;
+        config.EnableSslCertificateVerification = false;
+        config.SaslUsername = options.SaslUsername;
+        config.SaslPassword = options.SaslPassword;
+
+        config.GroupId = options.GroupId;
+        config.EnableAutoOffsetStore = false;
+        config.EnableAutoCommit = false;
+        config.AutoOffsetReset = AutoOffsetReset.Earliest;
+        config.EnablePartitionEof = true;
+        config.PartitionAssignmentStrategy = PartitionAssignmentStrategy.CooperativeSticky;
+
+        return config;
     }
 
     public SchemaRegistryConfig CreateSchemaRegistryConfig(SchemaRegistryConfigOptions options)

@@ -11,6 +11,7 @@ public static class ServiceCollectionExtensions
         this IServiceCollection serviceCollection)
     {
         serviceCollection.AddSingleton<IKafkaProducersFactory, KafkaProducersFactory>();
+        serviceCollection.AddSingleton<IKafkaConsumersFactory, KafkaConsumersFactory>();
         serviceCollection.AddSingleton<IServiceBusFactory, ServiceBusFactory>();
         serviceCollection.AddSingleton<IAvroSchemaRegistryManager, AvroSchemaRegistryManager>();
         serviceCollection.AddSingleton<IKafkaConfigManager, KafkaConfigManager>();

@@ -17,7 +17,6 @@ public interface IKafkaProducersFactory
 public class KafkaProducersFactory : IKafkaProducersFactory, IDisposable
 {
     private readonly object factoryLock = new object();
-    private CachedSchemaRegistryClient schemaRegistryClient;
     private List<KafkaProducerTracker> producersWithoutAvroSchema = new();
     private List<KafkaProducerTracker> producersWithAvroSchema = new();
 

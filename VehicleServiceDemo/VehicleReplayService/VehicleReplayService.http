@@ -1,0 +1,6 @@
+@VehicleReplayService_HostAddress = http://localhost:5043
+
+GET {{VehicleReplayService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
