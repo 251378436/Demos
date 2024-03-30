@@ -1,0 +1,50 @@
+{
+   "namespace": "vehicle.sensor.massage.replay",
+   "type": "record",
+   "doc": "A simple log message type as used by this blog post.",
+   "name": "SensorMessageValue",
+   "fields": [
+      {
+         "name": "vehicle_id",
+         "type": "string",
+      },
+      {
+         "name": "customer",
+         "type": {
+            "name": "Customer",
+            "type": "record",
+            "fields": [
+               {
+                  "name": "customerI_id",
+                  "type": "string"
+               },
+               {
+                  "name": "description",
+                  "type": "string"
+               },
+               {
+                  "name": "customer_type",
+                  "type": {
+                     "type": "enum",
+                     "doc": "Enumerates the customer types.",
+                     "name": "CustomerType",
+                     "default": "Standard",
+                     "symbols": [
+                        "Standard",
+                        "Premium",
+                        "Expired"
+                     ]
+                  }
+               }
+            ]
+         }
+      },
+      {
+         "name": "tags",
+         "type": {
+            "type": "map",
+            "values": "string"
+        }
+      }
+   ]
+}
