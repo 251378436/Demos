@@ -11,8 +11,9 @@ public static class SensorReplayServiceCollectionExtensions
     {
         serviceCollection.AddSingleton<ISensorKafkaProducer, SensorKafkaProducer>();
         serviceCollection.AddSingleton<ISensorReplayReceiver, SensorReplayReceiver>();
-        serviceCollection.AddSingleton<ISensorWriter, SensorWriter>();
+        serviceCollection.AddSingleton<ISensorReplayWriter, SensorReplayWriter>();
         serviceCollection.AddSingleton<ISensorReplayUseCase, SensorReplayUseCase>();
+        serviceCollection.AddSingleton<ISensorReplayKafkaProducer, SensorReplayKafkaProducer>();
 
         serviceCollection.AddHostedService<SensorReplayBackgroundService>();
 
