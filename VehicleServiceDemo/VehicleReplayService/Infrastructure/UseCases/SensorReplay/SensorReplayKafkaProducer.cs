@@ -4,12 +4,12 @@ using vehicle.sensor.massage.replay;
 
 namespace VehicleReplayService.Infrastructure.UseCases.SensorReplay;
 
-public interface ISensorReplayKafkaProducer : IKafkaProducerProxy<string, SensorMessageValue>
+public interface ISensorReplayKafkaProducer : IKafkaProducerProxy<SensorMessageKey, SensorMessageValue>
 {
 
 }
 
-public class SensorReplayKafkaProducer : KafkaProducerProxy<string, SensorMessageValue>, ISensorReplayKafkaProducer
+public class SensorReplayKafkaProducer : KafkaProducerProxy<SensorMessageKey, SensorMessageValue>, ISensorReplayKafkaProducer
 {
     public SensorReplayKafkaProducer(IKafkaProducersFactory kafkaProducersFactory,
         IKafkaConfigManager kafkaConfigManager) : base(kafkaProducersFactory, kafkaConfigManager)

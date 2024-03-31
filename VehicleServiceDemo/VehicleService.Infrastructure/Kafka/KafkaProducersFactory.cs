@@ -63,7 +63,7 @@ public class KafkaProducersFactory : IKafkaProducersFactory, IDisposable
                                 {
                                     Console.WriteLine($"Failed to create kafka producer. Error: ${errorHandler}");
                                 })
-                                .SetValueSerializer(new AvroSerializer<TValue>(schemaRegistry, avroSerializerConfig))
+                                .SetValueSerializer(new AvroSerializer<TValue>(schemaRegistry))
                                 .Build();
                     }
                     else

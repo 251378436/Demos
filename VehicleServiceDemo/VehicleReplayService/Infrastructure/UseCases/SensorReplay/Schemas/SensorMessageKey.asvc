@@ -1,0 +1,12 @@
+{
+   "namespace": "vehicle.sensor.massage.replay",
+   "type": "record",
+   "doc": "A simple log message type as used by this blog post.",
+   "name": "SensorMessageKey",
+   "fields": [
+      {
+         "name": "customer_id",
+         "type": "string",
+      }
+   ]
+}

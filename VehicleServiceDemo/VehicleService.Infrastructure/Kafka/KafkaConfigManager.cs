@@ -27,13 +27,10 @@ public class KafkaConfigManager : IKafkaConfigManager
 
         var producerConfig = new ProducerConfig(config)
         {
-            //BootstrapServers = "localhost:9092",
             BootstrapServers = options.BootstrapServers,
             SecurityProtocol = SecurityProtocol.SaslSsl,
             SaslMechanism = SaslMechanism.Plain,
             EnableSslCertificateVerification = false,
-            //SaslUsername = "admin",
-            //SaslPassword = "admin-secret",
             SaslUsername = options.SaslUsername,
             SaslPassword = options.SaslPassword
         };

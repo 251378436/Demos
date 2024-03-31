@@ -16,8 +16,8 @@ namespace vehicle.sensor.massage.replay
 	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("avrogen", "1.11.1")]
 	public partial class Customer : global::Avro.Specific.ISpecificRecord
 	{
-		public static global::Avro.Schema _SCHEMA = global::Avro.Schema.Parse(@"{""type"":""record"",""name"":""Customer"",""namespace"":""vehicle.sensor.massage.replay"",""fields"":[{""name"":""customerI_id"",""type"":""string""},{""name"":""description"",""type"":""string""},{""name"":""customer_type"",""type"":{""type"":""enum"",""name"":""CustomerType"",""doc"":""Enumerates the customer types."",""namespace"":""vehicle.sensor.massage.replay"",""symbols"":[""Standard"",""Premium"",""Expired""],""default"":""Standard""}}]}");
-		private string _customerI_id;
+		public static global::Avro.Schema _SCHEMA = global::Avro.Schema.Parse(@"{""type"":""record"",""name"":""Customer"",""namespace"":""vehicle.sensor.massage.replay"",""fields"":[{""name"":""customer_id"",""type"":""string""},{""name"":""description"",""type"":""string""},{""name"":""customer_type"",""type"":{""type"":""enum"",""name"":""CustomerType"",""doc"":""Enumerates the customer types."",""namespace"":""vehicle.sensor.massage.replay"",""symbols"":[""Standard"",""Premium"",""Expired""],""default"":""Standard""}}]}");
+		private string _customer_id;
 		private string _description;
 		private vehicle.sensor.massage.replay.CustomerType _customer_type = vehicle.sensor.massage.replay.CustomerType.Standard;
 		public virtual global::Avro.Schema Schema
@@ -27,15 +27,15 @@ namespace vehicle.sensor.massage.replay
 				return Customer._SCHEMA;
 			}
 		}
-		public string customerI_id
+		public string customer_id
 		{
 			get
 			{
-				return this._customerI_id;
+				return this._customer_id;
 			}
 			set
 			{
-				this._customerI_id = value;
+				this._customer_id = value;
 			}
 		}
 		public string description
@@ -64,7 +64,7 @@ namespace vehicle.sensor.massage.replay
 		{
 			switch (fieldPos)
 			{
-			case 0: return this.customerI_id;
+			case 0: return this.customer_id;
 			case 1: return this.description;
 			case 2: return this.customer_type;
 			default: throw new global::Avro.AvroRuntimeException("Bad index " + fieldPos + " in Get()");
@@ -74,7 +74,7 @@ namespace vehicle.sensor.massage.replay
 		{
 			switch (fieldPos)
 			{
-			case 0: this.customerI_id = (System.String)fieldValue; break;
+			case 0: this.customer_id = (System.String)fieldValue; break;
 			case 1: this.description = (System.String)fieldValue; break;
 			case 2: this.customer_type = (vehicle.sensor.massage.replay.CustomerType)fieldValue; break;
 			default: throw new global::Avro.AvroRuntimeException("Bad index " + fieldPos + " in Put()");
