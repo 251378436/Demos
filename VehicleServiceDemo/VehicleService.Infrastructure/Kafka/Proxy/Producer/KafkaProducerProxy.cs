@@ -1,4 +1,5 @@
 ﻿using Confluent.Kafka;
+using Microsoft.Extensions.Logging;
 using VehicleService.Infrastructure.Kafka.Options;
 
 namespace VehicleService.Infrastructure.Kafka.Proxy.Producer;
@@ -12,9 +13,11 @@ public abstract class KafkaProducerProxy<TKey, TValue> : IKafkaProducerProxy<TKe
 
     private readonly IKafkaProducersFactory kafkaProducersFactory;
     private readonly IKafkaConfigManager kafkaConfigManager;
+    private readonly ILogger logger;
 
-    public KafkaProducerProxy(IKafkaProducersFactory kafkaProducersFactory, IKafkaConfigManager kafkaConfigManager)
+    public KafkaProducerProxy(ILogger logger, IKafkaProducersFactory kafkaProducersFactory, IKafkaConfigManager kafkaConfigManager)
     {
+        this.logger = logger;
         this.kafkaProducersFactory = kafkaProducersFactory;
         this.kafkaConfigManager = kafkaConfigManager;
     }
@@ -22,7 +25,7 @@ public abstract class KafkaProducerProxy<TKey, TValue> : IKafkaProducerProxy<TKe
     public Task<DeliveryResult<TKey, TValue>> ProduceAsync(string topic, Message<TKey, TValue> message, CancellationToken cancellationToken = default)
     {
         var producer = GetProducer();
-
+        logger.LogInformation($"Sent out: {Newtonsoft.Json.JsonConvert.SerializeObject(message)}");
         return producer.ProduceAsync(topic, message, cancellationToken);
     }
 

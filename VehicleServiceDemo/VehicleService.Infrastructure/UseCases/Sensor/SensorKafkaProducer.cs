@@ -1,4 +1,5 @@
-﻿using VehicleService.Infrastructure.Kafka;
+﻿using Microsoft.Extensions.Logging;
+using VehicleService.Infrastructure.Kafka;
 using VehicleService.Infrastructure.Kafka.Options;
 using VehicleService.Infrastructure.Kafka.Proxy.Producer;
 
@@ -11,8 +12,9 @@ public interface ISensorKafkaProducer : IKafkaProducerProxy<string, string>
 
 public class SensorKafkaProducer : KafkaProducerWithoutSchemaProxy, ISensorKafkaProducer
 {
-    public SensorKafkaProducer(IKafkaProducersFactory kafkaProducersFactory,
-        IKafkaConfigManager kafkaConfigManager) : base(kafkaProducersFactory, kafkaConfigManager)
+    public SensorKafkaProducer(ILogger<SensorKafkaProducer> logger,
+        IKafkaProducersFactory kafkaProducersFactory,
+        IKafkaConfigManager kafkaConfigManager) : base(logger, kafkaProducersFactory, kafkaConfigManager)
     {
     }
 

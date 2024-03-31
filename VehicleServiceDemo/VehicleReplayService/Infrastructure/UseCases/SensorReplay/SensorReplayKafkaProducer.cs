@@ -12,8 +12,9 @@ public interface ISensorReplayKafkaProducer : IKafkaProducerProxy<SensorMessageK
 
 public class SensorReplayKafkaProducer : KafkaProducerProxy<SensorMessageKey, SensorMessageValue>, ISensorReplayKafkaProducer
 {
-    public SensorReplayKafkaProducer(IKafkaProducersFactory kafkaProducersFactory,
-        IKafkaConfigManager kafkaConfigManager) : base(kafkaProducersFactory, kafkaConfigManager)
+    public SensorReplayKafkaProducer(ILogger<SensorReplayKafkaProducer> logger,
+        IKafkaProducersFactory kafkaProducersFactory,
+        IKafkaConfigManager kafkaConfigManager) : base(logger, kafkaProducersFactory, kafkaConfigManager)
     {
     }
 
