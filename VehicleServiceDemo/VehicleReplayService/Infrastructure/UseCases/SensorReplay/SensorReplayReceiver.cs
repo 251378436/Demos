@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Newtonsoft.Json.Linq;
 using VehicleService.Infrastructure.Kafka;
+using VehicleService.Infrastructure.Kafka.Options;
 using VehicleService.Infrastructure.Kafka.Proxy.Producer;
 namespace VehicleReplayService.Infrastructure.UseCases.SensorReplay;
 

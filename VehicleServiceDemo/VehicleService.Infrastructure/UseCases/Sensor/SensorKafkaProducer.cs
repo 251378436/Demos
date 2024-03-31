@@ -1,4 +1,5 @@
 ﻿using VehicleService.Infrastructure.Kafka;
+using VehicleService.Infrastructure.Kafka.Options;
 using VehicleService.Infrastructure.Kafka.Proxy.Producer;
 
 namespace VehicleService.Infrastructure.UseCases.Sensor;

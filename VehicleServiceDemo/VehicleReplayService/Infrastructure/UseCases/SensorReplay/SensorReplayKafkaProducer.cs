@@ -1,6 +1,7 @@
 ﻿using VehicleService.Infrastructure.Kafka.Proxy.Producer;
 using VehicleService.Infrastructure.Kafka;
 using vehicle.sensor.massage.replay;
+using VehicleService.Infrastructure.Kafka.Options;
 
 namespace VehicleReplayService.Infrastructure.UseCases.SensorReplay;
 

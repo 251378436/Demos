@@ -1,5 +1,6 @@
 ﻿using Confluent.Kafka;
 using Confluent.SchemaRegistry;
+using VehicleService.Infrastructure.Kafka.Options;
 
 namespace VehicleService.Infrastructure.Kafka;
 
