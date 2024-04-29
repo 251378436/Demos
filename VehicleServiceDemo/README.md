@@ -1,4 +1,8 @@
 ## Introduction
+Demo background: The customers want to know the status of the vehicle including location, humidity, light, weight, and other
+information. The standard customers can only get location information. Premium customers can get other sensor data. The most important 
+domain logics are in this file https://github.com/251378436/Demos/blob/main/VehicleServiceDemo/VehicleService.Domain/UseCases/Sensor/SensorUseCase.cs.
+
 This is a real demo project about how to use ServiceBus and Kafka to handle requests for vehicle information.
 
 The purposes of this demostration include:
