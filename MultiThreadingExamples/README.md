@@ -22,7 +22,7 @@ This example shows how controller use the threads. When there are multiple reque
 https://medium.com/geekculture/performance-testing-with-jmeter-af94a397cd0b
 
 ### Example 6 - Console app:
-multi tasks with Task.Run, they starts with the different thread, when it meets await http request for API (Example 5), it uses another thread
+multi tasks with Task.Run, they starts with the same thread, when it meets await http request for API (make sure Example 5 API is running), it uses another thread
 
 ## Other concerns
 Exception in multi tasks, we can only get one exception when using Task.WhenAll. If we need all the exceptions, see this blog.
