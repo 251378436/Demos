@@ -1,3 +1,4 @@
+using FirstAPI;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
@@ -10,6 +11,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.Configure<OutboundAuth>(builder.Configuration.GetSection("outboundAuth:auth0_group_tenant"));
 
 builder.Services.AddAuthentication(options =>
                 {
@@ -34,6 +37,13 @@ builder.Services.AddAuthentication(options =>
                         NameClaimType = ClaimTypes.NameIdentifier
                     };
                 });
+
+builder.Services.AddTransient<Auth0HttpHandler>();
+
+builder.Services.AddHttpClient("secondapi", (provider, client) =>
+{
+    client.BaseAddress = new Uri("http://localhost:5196/");
+}).AddHttpMessageHandler<Auth0HttpHandler>();
 
 var app = builder.Build();
 
