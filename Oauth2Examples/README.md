@@ -19,7 +19,7 @@ Enpoint 1: If inbound request is authorized, then return result directly (Inboun
 
 ## References
 * [**Quick start Auth0 with asp.net web api.**](https://auth0.com/docs/quickstart/backend/aspnet-core-webapi/interactive)
-* [**An example how to implement robe based access with permissions(scopes) in asp.net.**](https://medium.com/projectwt/web-api-in-net-6-0-with-auth0-with-roles-and-permissions-50103832ea21)
+* [**An example how to implement role based access with permissions(scopes) in asp.net.**](https://medium.com/projectwt/web-api-in-net-6-0-with-auth0-with-roles-and-permissions-50103832ea21)
 * [**Explanation of OAuth2.**](https://medium.com/web-security/understanding-oauth2-a50f29f0fbf7)
 * [**Difference between OAuth2 and OIDC.**](https://www.linkedin.com/advice/0/how-do-you-choose-between-oauth2-openid#:~:text=The%20main%20difference%20between%20OAuth2,the%20identity%20of%20a%20user.)
 
