@@ -25,7 +25,7 @@ public class Auth0HttpHandler : DelegatingHandler
     {
         // TODO: add this token into memory cache
         var outboundAuth = options.Value;
-        var client = new AuthenticationApiClient(outboundAuth.Issuer);
+        var client = new AuthenticationApiClient(outboundAuth.Domain);
 
         var credentialsTokenRequest = new ClientCredentialsTokenRequest
         {
