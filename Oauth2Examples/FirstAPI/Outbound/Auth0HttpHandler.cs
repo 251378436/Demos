@@ -3,7 +3,7 @@ using Auth0.AuthenticationApi.Models;
 using Microsoft.Extensions.Options;
 using System.Net.Http.Headers;
 
-namespace FirstAPI;
+namespace FirstAPI.Outbound;
 
 public class Auth0HttpHandler : DelegatingHandler
 {
@@ -23,7 +23,8 @@ public class Auth0HttpHandler : DelegatingHandler
 
     private async Task<TokenData> GetToken(CancellationToken cancellationToken)
     {
-        var outboundAuth = this.options.Value;
+        // TODO: add this token into memory cache
+        var outboundAuth = options.Value;
         var client = new AuthenticationApiClient(outboundAuth.Issuer);
 
         var credentialsTokenRequest = new ClientCredentialsTokenRequest

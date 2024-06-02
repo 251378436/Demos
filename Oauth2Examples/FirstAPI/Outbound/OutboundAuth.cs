@@ -1,4 +1,4 @@
-﻿namespace FirstAPI;
+﻿namespace FirstAPI.Outbound;
 
 public class OutboundAuth
 {

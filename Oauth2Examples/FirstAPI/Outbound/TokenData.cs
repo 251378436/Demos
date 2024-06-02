@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FirstAPI;
+namespace FirstAPI.Outbound;
 
 public class TokenData
 {
