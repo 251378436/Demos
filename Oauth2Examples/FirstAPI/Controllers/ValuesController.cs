@@ -18,6 +18,7 @@ public class ValuesController : ControllerBase
         this.httpClientFactory = httpClientFactory;
     }
 
+    [MyCustomAuthorizationFilter]
     [HttpGet("defaultvalue")]
     public IActionResult Get()
     {
